@@ -1,22 +1,25 @@
 var orm = require("../config/orm.js");
 
 var foodOrders = {
-    selectAll: function(cb){
-        orm.selectAll("orderUp", function(res){
+    all: function(cb){
+        orm.all("orderUp", function(res){
             cb(res);
         });
     },
 
-    insertOne: function(){
-        orm.insertOne("orderUp", cols, vals, function(res){
-            cb(res);
-        });
+    create: function(name, cb){
+        orm.create("orderUp", [
+            "order_name", "ready"
+        ],[
+            name, false
+        ], cb);
     },
 
-    updateOne: function(){
-        orm.updateOne("orderUp", objColVals, condition, function(){
-            cb(res);
-        });
+    update: function(id, cb){
+        var condition = "id=" + id;
+        orm.update("orderUp", {
+           ready: true
+        }, condition, cb);
     }
 };
 
