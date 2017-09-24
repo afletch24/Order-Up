@@ -38,10 +38,10 @@ var orm = {
         console.log(query);
         console.log("-----------------------");
         connection.query(query, vals, function(err, result){
-            // if (err) {
-            //     throw err;
-            // }
-            console.log("**********" + vals);
+            if (err) {
+                throw err;
+            }
+            
             cb(result);
         });
     },
