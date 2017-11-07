@@ -1,11 +1,12 @@
-CREATE DATABASE orderUp_db;
+DROP TABLE IF EXISTS order_up;
 
-USE orderUp_db;
+CREATE DATABASE order_up_db;
 
-CREATE TABLE orderUp (
+USE order_up_db;
+
+CREATE TABLE order_up (
 	`id` INTEGER(11) AUTO_INCREMENT NOT NULL,
-	`order` VARCHAR(140) NOT NULL,
+	`foodorder` VARCHAR(140) NOT NULL,
 	`ready` BOOLEAN DEFAULT false,
-	`date` TIMESTAMP,
 	PRIMARY KEY(`id`)
 );

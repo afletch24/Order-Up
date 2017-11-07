@@ -1,7 +1,6 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-12 text-center" id="top-bar">
-            {{!-- <img src="../public/assets/images/burger.png" alt="burger" id='burgerlogo'> --}}
             <h1> Order Up! </h1>
         </div>
     </div>
@@ -14,9 +13,8 @@
               {{#each order_data}}
                   {{#unless this.ready}}
                 <div class="col-xs-9 text-center">
-                    <pre>{{this.id}}. {{this.order_name}}
+                    <pre>{{this.id}}. {{this.foodorder}}
                     </pre>
-                         <!-- {{this.Date}} -->
                 </div>
                 <div class="col-xs-3 text-center">
                     <form method="POST" action="/orders/update?_method=PUT" class="button-size">
@@ -41,7 +39,7 @@
             <div class= "row">  
               {{#each order_data}}
                   {{#if this.ready}}
-                      <input class="form-control" type="text" placeholder="{{this.id}} . {{this.order_name}}" readonly>
+                      <input class="form-control" type="text" placeholder="{{this.id}} . {{this.foodorder}}" readonly>
                 {{/if}}
               {{/each}}
             </div>
@@ -52,10 +50,10 @@
     <div class="row">
         <div class="col-xs-12 text-center enter_section">
             <form action="/orders/create" method="POST">
-                <input type="text" class="form-control" name="order_name" value="" id="enter_text">
+                <input type="text" class="form-control" name="foodorder" value="" id="enter_text">
                 <br>
-                {{!-- <button type="submit" class="btn btn-primary" id="text-enter-button">Submit</button> --}}
-                <a class="waves-effect waves-light btn card-panel teal lighten-2">Submit</a>
+                  <button type="submit" class="btn btn-primary" id="text-enter-button">Submit</button>  
+                {{!-- <a class="waves-effect waves-light btn card-panel teal lighten-2">Submit</a> --}}
             </form>
             <br>
             <p>Enter the Customer's Order!</p>

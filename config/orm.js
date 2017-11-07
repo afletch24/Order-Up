@@ -33,27 +33,23 @@ var orm = {
     },
 
     create: function(table, cols, vals, cb){
-        var query = "INSERT INTO " + table + " (" + cols.toString() + ") " + "VALUES (" + printQuestionMarks(vals.length) + ");";
-        console.log("-----------------------");
-        console.log(query);
-        console.log("-----------------------");
-        connection.query(query, vals, function(err, result){
+        var querystring = "INSERT INTO " + table + " (" + cols.toString() + ") " + "VALUES (" + printQuestionMarks(vals.length) + ") ";
+    
+        connection.query(querystring, vals, function(err, result){         
             if (err) {
                 throw err;
             }
-            
             cb(result);
+            console.log(result);
         });
     },
 
     update: function (table, objColVals, condition, cb){
         var query = "UPDATE " + table + " SET " + objToSql(objColVals) + " WHERE " + condition;
-
-        connection.query(queryString, function(err, result) {
+        connection.query(query, function(err, result) {
             if (err) {
                 throw err;
             }
-
             cb(result);
         });   
     }

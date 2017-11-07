@@ -2,14 +2,14 @@ var orm = require("../config/orm.js");
 
 var foodOrders = {
     all: function(cb){
-        orm.all("orderUp", function(res){
+        orm.all("order_up", function(res){
             cb(res);
         });
     },
 
     create: function(name, cb){
-        orm.create("orderUp", [
-            "order_name", "ready"
+        orm.create("order_up", [
+            `foodorder`, `ready` 
         ],[
             name, false
         ], cb);
@@ -17,7 +17,7 @@ var foodOrders = {
 
     update: function(id, cb){
         var condition = "id=" + id;
-        orm.update("orderUp", {
+        orm.update("order_up", {
            ready: true
         }, condition, cb);
     }

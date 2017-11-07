@@ -1,8 +1,8 @@
-INSERT INTO orderUp (`order`)
-VALUES ("Cheeseburger");
+INSERT INTO order_up (foodorder, ready)
+VALUES ('Cheeseburger', FALSE);
 
-INSERT INTO orderUp (`order`)
-VALUES("Pepperoni Pizza");
+INSERT INTO order_up (foodorder, ready)
+VALUES("Pepperoni Pizza", false);
 
-INSERT INTO orderUp (`order`)
-VALUES("Steak Taco");
+INSERT INTO order_up (foodorder, ready)
+VALUES("Steak Taco", false);
