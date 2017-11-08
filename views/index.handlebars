@@ -1,47 +1,50 @@
 <div class="container">
     <div class="row">
-        <div class="col-xs-12 text-center" id="top-bar">
+        <div class="col-xs-12 text-center centered" id="top-bar">
             <h1> Order Up! </h1>
         </div>
-    </div>
-    <div class="row">    
-        <div class="col-xs-4 text-center" class="task">
+      
+        <div class="col-xs-12">
             <div class="row">
-                <img src="/assets/img/small-pad.png" alt="Note Pad" id="notePadImg">
-            </div>
-            <div class="row">
-              {{#each order_data}}
-                  {{#unless this.ready}}
-                <div class="col-xs-9 text-center">
-                    <pre>{{this.id}}. {{this.foodorder}}
-                    </pre>
+                <div class="col-xs-4 text-center">
+                        <img src="/assets/img/small-pad.png" alt="Note Pad" id="notePadImg">
                 </div>
-                <div class="col-xs-3 text-center">
-                    <form method="POST" action="/orders/update?_method=PUT" class="button-size">
-                        <input type="hidden" type="text" name="order_id" value={{this.id}}><br>
-                        <button type="submit" class="btn btn-default">Order Up!</button>
-                    </form>
+                <div class="col-xs-4 text-center">
+                    <img src="/assets/img/cooking.png" alt="Cooking" id="cookingImg">
                 </div>
-                {{/unless}}
-              {{/each}}
+                <div class="col-xs-4 text-center">
+                    <img src="/assets/img/food.png" alt="Food" id="foodImg">
+                </div>
             </div>
         </div>
 
-        <div class="col-xs-4 text-center">
-            <img src="/assets/img/cooking.png" alt="Cooking" id="cookingImg">
-
-        </div>
-
-        <div class="col-xs-4 text-center" class="task">
+        <div class="col-xs-8 text-center" class="task">
             <div class="row">
-               <img src="/assets/img/food.png" alt="Food" id="foodImg">
-            </div>
-            <div class= "row">  
-              {{#each order_data}}
-                  {{#if this.ready}}
-                      <input class="form-control" type="text" placeholder="{{this.id}} . {{this.foodorder}}" readonly>
-                {{/if}}
-              {{/each}}
+                {{#each order_data}}
+                    {{#unless this.ready}}
+                        <div class="col-xs-6 text-left">
+                            <pre> {{this.id}}. {{this.foodorder}}</pre>
+                        </div>
+                        <div class="col-xs-6 buttonbox">
+                            <form method="POST" action="/orders/update?_method=PUT" class="button-size">
+                                <input type="hidden" type="text" name="order_id" value={{this.id}}><br>
+                                <button type="submit" class="btn waves-effect grey darken-4"> {{this.id}}. Order Up!</button>
+                            </form>
+                        </div>
+                    {{/unless}}
+                {{/each}}
+            </div> 
+        </div>
+            
+        <div class="col-xs-4 text-center" class="task">
+            <div class= "row"> 
+                <div class="col-xs-12 text-center"> 
+                    {{#each order_data}}
+                        {{#if this.ready}}
+                            <input class="form-control readyorders" type="text" placeholder="{{this.id}}. {{this.foodorder}}" readonly>
+                        {{/if}}
+                    {{/each}}
+                </div>
             </div>
         </div>
     </div>
@@ -49,14 +52,15 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-12 text-center enter_section">
+            <p>Enter the Customer's Order: </p>
             <form action="/orders/create" method="POST">
                 <input type="text" class="form-control" name="foodorder" value="" id="enter_text">
                 <br>
-                  <button type="submit" class="btn btn-primary" id="text-enter-button">Submit</button>  
-                {{!-- <a class="waves-effect waves-light btn card-panel teal lighten-2">Submit</a> --}}
+                  <button type="submit" class="btn waves-effect grey darken-2" id="text-enter-button">Submit</button>  
+                
             </form>
             <br>
-            <p>Enter the Customer's Order!</p>
+            
         </div>
     </div>
 </div>

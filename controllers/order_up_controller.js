@@ -10,6 +10,8 @@ router.get("/", function(req, res) {
 router.get("/orders", function(req, res){
   orders.all(function(data){
     res.render("index", {order_data: data});
+    console.log("RIGHT HERE");
+    console.log(data);
   });
   
 });
