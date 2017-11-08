@@ -11,4 +11,4 @@ The following packages are required:
 - materialize-css
 - express-handlebars
 
-![Demo](/public/assets/img/orerUpDemo)
+![orderupdemo](https://user-images.githubusercontent.com/26773758/32570760-c228753a-c48a-11e7-8b33-96a381f6c239.gif)
